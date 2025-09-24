@@ -17,4 +17,10 @@ public class LoginController {
         return loginServcie.login(user);
     }
 
+
+    @RequestMapping("/user/logout")
+    public ResponseResult logout(){
+        return loginServcie.logout();
+    }
+
 }
