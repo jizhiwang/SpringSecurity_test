@@ -1,73 +1,85 @@
 package org.Ted.domian;
 
-import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import java.time.LocalDateTime;
 import java.io.Serializable;
-import java.util.Date;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.experimental.Accessors;
 
 /**
- * 菜单表(Menu)实体类
+ * <p>
+ * 菜单表
+ * </p>
  *
- * @author makejava
- * @since 2021-11-24 15:30:08
+ * @author Ted
+ * @since 2025-09-25
  */
-@TableName(value="sys_menu")
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
-@JsonInclude(JsonInclude.Include.NON_NULL)
+@EqualsAndHashCode(callSuper = false)
+@Accessors(chain = true)
+@TableName("sys_menu")
 public class Menu implements Serializable {
-    private static final long serialVersionUID = -54979041104113736L;
-    
-    @TableId
+
+    private static final long serialVersionUID = 1L;
+
+    @TableId(value = "id", type = IdType.AUTO)
     private Long id;
+
     /**
-    * 菜单名
-    */
+     * 菜单名
+     */
     private String menuName;
+
     /**
-    * 路由地址
-    */
+     * 路由地址
+     */
     private String path;
+
     /**
-    * 组件路径
-    */
+     * 组件路径
+     */
     private String component;
+
     /**
-    * 菜单状态（0显示 1隐藏）
-    */
+     * 菜单状态（0显示 1隐藏）
+     */
     private String visible;
+
     /**
-    * 菜单状态（0正常 1停用）
-    */
+     * 菜单状态（0正常 1停用）
+     */
     private String status;
+
     /**
-    * 权限标识
-    */
+     * 权限标识
+     */
     private String perms;
+
     /**
-    * 菜单图标
-    */
+     * 菜单图标
+     */
     private String icon;
-    
+
     private Long createBy;
-    
-    private Date createTime;
-    
+
+    private LocalDateTime createTime;
+
     private Long updateBy;
-    
-    private Date updateTime;
+
+    private LocalDateTime updateTime;
+
     /**
-    * 是否删除（0未删除 1已删除）
-    */
+     * 是否删除（0未删除 1已删除）
+     */
     private Integer delFlag;
+
     /**
-    * 备注
-    */
+     * 备注
+     */
     private String remark;
+
+
 }
